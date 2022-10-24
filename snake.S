@@ -6,7 +6,6 @@ start:
 JSR moveSnake
 JSR drawSnake
 JSR drawApple
-JSR decrementSnake
 JMP start
 
 ;--------------------------------
@@ -66,11 +65,7 @@ drawSnake:
 ;--------------------------------
 LDA #05
 STA $0200, Y
-
-;--------------------------------
-decrementSnake:
-;--------------------------------
-
+RTS
 
 
 
@@ -81,18 +76,6 @@ LDA #09
 STA $0235
 RTS
 
-;--------------------------------
-checkPosition:
-;--------------------------------
-BEQ $05
-INX
-JSR increasePoint
-
-;--------------------------------
-increasePoint:
-;--------------------------------
-LDX #01
-STA $0100, Y
 
 ;--------------------------------
 gameOver:
